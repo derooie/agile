@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+
+    <h1>Update retrospective numbers</h1>
+    <div class="row">
+        <div class="col-md">
+            <form  method="POST">
+                {% csrf_token %}
+{#                {% include 'retrospectives/partials/update_values.html' %}#}
+
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

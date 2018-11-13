@@ -1,0 +1,31 @@
+{% for field in form %}
+    {% if field.name == 'fun' %}
+        <div class="form-group">
+            <label for="{{ field.name }}">Fun value</label>
+            <select class="form-control {{ field.name }}" id="{{ field.name }}" name={{ field.name }}>
+                {% for option in field %}
+                    {{ option }}
+                {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+    {% if field.name == 'value' %}
+        <div class="form-group">
+            <label for="{{ field.name }}">Sprint value</label>
+            <select class="form-control {{ field.name }}" id="{{ field.name }}" name="{{ field.name }}">
+                {% for option in field %}
+                    {{ option }}
+                {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+
+    {% if field.name != 'fun' and field.name != 'value' %}
+        <div class="form-group">
+            <label for="{{ field.name }}">{{ field.name|capfirst }}</label>
+            <textarea class="form-control {{ field.name }} {% if field.errors %}input-error{% endif %}"
+                      id="{{ field.name }}"
+                      name="{{ field.name }}" rows="5">{{ field.value }}</textarea>
+        </div>
+    {% endif %}
+{% endfor %}

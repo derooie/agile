@@ -1,0 +1,142 @@
+[
+	{
+		"model": "retrospectives.retrospective",
+		"pk": 1,
+		"fields": {
+			"team": 1,
+			"sprint_number": 1,
+			"slug": "sprint-1",
+			"sprint_name": "Sprint 1 Team 1"
+		}
+	},
+	{
+		"model": "retrospectives.retrospective",
+		"pk": 2,
+		"fields": {
+			"team": 1,
+			"sprint_number": 2,
+			"slug": "sprint-2",
+			"sprint_name": "Sprint 2 Team 1"
+		}
+	},
+	{
+		"model": "retrospectives.retrospective",
+		"pk": 3,
+		"fields": {
+			"team": 2,
+			"sprint_number": 1,
+			"slug": "sprint-1",
+			"sprint_name": "Sprint 1 Team 2"
+		}
+	},
+	{
+		"model": "retrospectives.retrospectivenumber",
+		"pk": 1,
+		"fields": {
+			"sprint_number": 1,
+			"team": 1,
+			"user": 1,
+			"fun": 3,
+			"value": 4,
+			"great": "First great text",
+			"better": "First better text"
+		}
+	},
+	{
+		"model": "retrospectives.retrospectivenumber",
+		"pk": 2,
+		"fields": {
+			"sprint_number": 2,
+			"team": 1,
+			"user": 1,
+			"fun": 3,
+			"value": 2,
+			"great": "Great text",
+			"better": "Better text"
+		}
+	},
+	{
+		"model": "retrospectives.retrospectivenumber",
+		"pk": 3,
+		"fields": {
+			"sprint_number": 2,
+			"team": 1,
+			"user": 2,
+			"fun": 1,
+			"value": 1,
+			"great": "None",
+			"better": "None"
+		}
+	},
+	{
+		"model": "retrospectives.retrospectivenumber",
+		"pk": 4,
+		"fields": {
+			"sprint_number": 1,
+			"team": 1,
+			"user": 2,
+			"fun": 3,
+			"value": 1,
+			"great": "great",
+			"better": "Better"
+		}
+	},
+	{
+		"model": "retrospectives.retrospectiveuserfeedback",
+		"pk": 31,
+		"fields": {
+			"agile_user": 1,
+			"retrospective_number": 1,
+			"text": "Better Patrick",
+			"type": "better",
+			"votes": 2
+		}
+	},
+	{
+		"model": "retrospectives.retrospectiveuserfeedback",
+		"pk": 32,
+		"fields": {
+			"agile_user": 1,
+			"retrospective_number": 1,
+			"text": "Great Patrick",
+			"type": "great",
+			"votes": 2
+		}
+	},
+	{
+		"model": "retrospectives.uservote",
+		"pk": 40,
+		"fields": {
+			"feedback": 31,
+			"user": 1,
+			"voted": true
+		}
+	},
+	{
+		"model": "retrospectives.uservote",
+		"pk": 41,
+		"fields": {
+			"feedback": 32,
+			"user": 1,
+			"voted": true
+		}
+	},
+	{
+		"model": "retrospectives.uservote",
+		"pk": 42,
+		"fields": {
+			"feedback": 31,
+			"user": 2,
+			"voted": true
+		}
+	},
+	{
+		"model": "retrospectives.uservote",
+		"pk": 43,
+		"fields": {
+			"feedback": 32,
+			"user": 2,
+			"voted": true
+		}
+	}
+]

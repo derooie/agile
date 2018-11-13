@@ -1,11 +1,24 @@
-DEBUG=True
+DEBUG = True
 
-DATABASES = {
-    'default': {
-        # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
-        # 'ENGINE': 'django.db.backends.mysql' instead of the following.
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'agile',
-        'HOST': 'localhost',
-    }
-}
+ALLOWED_HOSTS = ['*',]
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'agile.sqlite3',
+#         'HOST': 'localhost',
+#     }
+# }
+
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+STATIC_ROOT = 'static/'
+
+
+# For local development use params.py to overwrite settings
+try:
+    from main.params import *
+except ImportError:
+    pass

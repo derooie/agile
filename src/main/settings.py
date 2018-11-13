@@ -3,8 +3,12 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
+# Define the project (src) root
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Repository root, can be used to determine 'non-code' paths such as logs
+REPOSITORY_ROOT = os.path.abspath(os.path.dirname(PROJECT_ROOT))
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'l7+tkt=j#&a^6*a6t*#&z9on@-(g3k8q+j#4nb_5@34xl)k7lu'
@@ -12,11 +16,9 @@ SECRET_KEY = 'l7+tkt=j#&a^6*a6t*#&z9on@-(g3k8q+j#4nb_5@34xl)k7lu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['35.204.140.234', 'localhost', '*']
-
+ALLOWED_HOSTS = ['35.204.140.234']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -24,6 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
+    'accounts.apps.AccountsConfig',
+    'retrospectives.apps.RetrospectivesConfig',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +53,9 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
+                # 'accounts.context_processors.get_team',
             ],
         },
     },
@@ -66,10 +73,10 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.mysql' instead of the following.
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'agile',
-        'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        # 'USER': 'agile',
-        # 'PASSWORD': 'agile',
+        # 'USER': os.getenv('DATABASE_USER'),
+        # 'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'USER': 'agile',
+        'PASSWORD': 'agile',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -110,7 +117,12 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
+# STATIC_ROOT = REPOSITORY_ROOT + '/static/'
+
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/retrospectives'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
 STATIC_ROOT = 'static/'
 
 STATIC_URL = 'http://storage.googleapis.com/kubernetes-django-agile/static/'

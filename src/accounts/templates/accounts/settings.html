@@ -1,0 +1,114 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+
+    <h1>Settings</h1>
+
+
+    <div class="row">
+
+        {# Django user settings #}
+        <div class="col-md">
+            <div class="table-responsive">
+                <table class="table user-table">
+                    <thead>
+                    <tr>
+                        <th colspan="2">User settings</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <td>Username</td>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>First name</td>
+                        <td>{{ user.first_name|capfirst }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last name</td>
+                        <td>{{ user.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {# DCloud settings #}
+        <div class="col-md">
+            <div class="table-responsive">
+                <table class="table user-table">
+                    <thead>
+                    <tr>
+                        <th colspan="2">DCloud settings</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Team</td>
+                        <td>{{ user.agile_user.team }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        {# App settings #}
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="col-md">
+                <div class="table-responsive">
+                    <table class="table user-table">
+                        <thead>
+                        <tr>
+                            <th colspan="2">App settings</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+
+                        {% for field in form %}
+                            <tr>
+                                <td><label for="{{ field.name }}">{{ field.label }}</label></td>
+
+                                <td>
+                                    <div class="form-group">
+
+                                        <select class="form-control {{ field.name }}" id="{{ field.name }}"
+                                                name="{{ field.name }}">
+                                            {% for option in field %}
+                                                {{ option }}
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+    </div>
+{% endblock %}
+

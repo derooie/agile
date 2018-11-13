@@ -1,0 +1,48 @@
+<div id="container"></div>
+<script>
+
+    Highcharts.chart("container",
+        {
+            credits: {
+                enabled: false
+            },
+            chart: {
+                backgroundColor: "#c7dffc",
+                type: "{{ graph_data.chart_type|safe }}"
+            },
+            title: {
+                text: "Sprint numbers"
+            },
+            xAxis: {
+                categories: [
+                    {% for data in graph_data.graph_values %}
+                        "{{ data.user|capfirst }}",
+                    {% endfor %}
+                ]
+            },
+            yAxis: {
+                max: 4
+            },
+            series: [
+                {
+                    name: "Fun",
+                    data: [
+                        {% for data in graph_data.graph_values %}
+                            {{ data.fun }},
+                        {% endfor %}
+                    ]
+                },
+                {
+                    name: "Value",
+                    data: [
+                        {% for data in graph_data.graph_values %}
+                            {{ data.value }},
+                        {% endfor %}
+                    ]
+                },
+            ]
+
+        });
+
+
+</script>

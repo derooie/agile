@@ -1,0 +1,34 @@
+[
+	{
+		"model": "accounts.team",
+		"pk": 1,
+		"fields": {
+			"team_name": "Team 1"
+		}
+	},
+	{
+		"model": "accounts.team",
+		"pk": 2,
+		"fields": {
+			"team_name": "Team 2"
+		}
+	},
+	{
+		"model": "accounts.agileuser",
+		"pk": 1,
+		"fields": {
+			"user": 1,
+			"team": 1,
+			"chart_type": "column"
+		}
+	},
+	{
+		"model": "accounts.agileuser",
+		"pk": 2,
+		"fields": {
+			"user": 2,
+			"team": 1,
+			"chart_type": "column"
+		}
+	}
+]

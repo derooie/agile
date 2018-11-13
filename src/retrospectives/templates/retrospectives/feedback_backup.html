@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+
+    <h1>Add retrospective feedback</h1>
+    <div class="row">
+        <div class="col-md">
+            <form method="POST" class="feedback-form">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    {% if field.name == 'text' %}
+                        <div class="form-group">
+                            <label for="{{ field.name }}">{{ field.name|capfirst }}</label>
+                            <textarea class="form-control {{ field.name }} {% if field.errors %}input-error{% endif %}"
+                                      id="{{ field.name }}"
+                                      name="{{ field.name }}" rows="5">{{ field.value }}</textarea>
+                        </div>
+                    {% endif %}
+                    {% if field.name == 'type' %}
+                        <div class="form-group">
+                            <label for="{{ field.name }}">Better or great</label>
+                            <select class="form-control {{ field.name }}" id="{{ field.name }}" name={{ field.name }}>
+                                {% for option in field %}
+                                    {{ option }}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

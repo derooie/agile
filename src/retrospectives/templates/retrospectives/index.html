@@ -1,0 +1,33 @@
+{% extends 'retrospectives/layout.html' %}
+
+{% block retrospectives_content %}
+
+
+
+    <div class="row retrospectives-index">
+        <div class="col-md">
+
+            <table class="table table-hover retro-list">
+                <thead>
+                <tr>
+                    <th scope="col">Sprint number</th>
+                    <th scope="col">Sprint Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for retro in retrospectives %}
+                    <tr onclick="window.document.location='{% url 'retrospectives:details' retro.slug %}';">
+                        <td>{{ retro.sprint_number }}</td>
+                        <td>{{ retro.sprint_name }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md">
+            {% include 'retrospectives/partials/index_chart.html' %}
+        </div>
+    </div>
+
+{% endblock %}

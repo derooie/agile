@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{% url 'retrospectives:index' %}">DCloud {% if team %}{{ team }}{% endif %}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link {{ retrospectives_nav }}" href="{% url 'retrospectives:index' %}">Retrospectives</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav mr-right login">
+            <li class="nav-item login-item">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">{{ user|capfirst }}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item {{ login_nav }}" href={% url 'accounts:logout' %}>Logout</a>
+                        <a class="dropdown-item {{ settings_nav }}" href={% url 'accounts:settings' 1 %}>Settings</a>
+                    </div>
+                {% else %}
+                    <a class="nav-link {{ login_nav }}" href={% url 'accounts:login' %}>Login</a>
+                {% endif %}
+
+                </li>
+        </ul>
+
+
+    </div>
+
+</nav>

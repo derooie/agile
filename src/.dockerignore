@@ -8,7 +8,6 @@ __pycache__
 .Python
 venv
 pip-log.txt
-pip-delete-this-directory.txt
 .tox
 .coverage
 .coverage.*
@@ -17,4 +16,4 @@ coverage.xml
 *,cover
 *.log
 .git
- 
+ main/params.py
