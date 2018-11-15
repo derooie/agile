@@ -195,7 +195,7 @@ def vote(request, feedback_pk, slug):
         feedback.votes += 1
         feedback.save()
     else:
-        messages.warning(request, 'You are the creator of this point or already voted')
+        messages.warning(request, 'You are the creator of this point or have already voted')
     return HttpResponseRedirect('/retrospectives/{}/'.format(slug))
 
 
