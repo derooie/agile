@@ -1,6 +1,8 @@
+import os
+
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*', ]
 
 # DATABASE INFO
 DATABASES = {
@@ -11,26 +13,23 @@ DATABASES = {
     }
 }
 
-PRODUCTION_DATABASE = {
+PRODUCTION_DB = {
     'default': {
-        # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
-        # 'ENGINE': 'django.db.backends.mysql' instead of the following.
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'agile',
-        # 'USER': os.getenv('DATABASE_USER'),
-        # 'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'USER': 'agile',
-        'PASSWORD': 'agile',
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        # 'USER': 'agile',
+        # 'PASSWORD': 'agile',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
 # Indicate which database you want to use in your development
-PRODUCTION_DATABASE=False
+PRODUCTION_DATABASE = False
 
 if PRODUCTION_DATABASE:
-    DATABASES = PRODUCTION_DATABASE
-
+    DATABASES = PRODUCTION_DB
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
