@@ -1,0 +1,13 @@
+//@import "colors";
+
+.user-table {
+  tr, td, th {
+    background-color: rgba(53, 170, 255, 0.15);
+    border-style: none;
+  }
+  thead th {
+    background-color: $primary;
+    border-style: none;
+    color: whitesmoke;
+  }
+}

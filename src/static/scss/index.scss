@@ -1,0 +1,43 @@
+@import "colors";
+@import "settings";
+@import "login";
+@import "retrospectives";
+@import "errors";
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+
+.navbar-dark .navbar-nav .nav-link {
+    margin-right: 100px;
+}
+
+.input-error {
+    border: 2px solid $error;
+}
+
+body{
+    background-color: $background;
+}
+
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.btn{
+  margin-bottom: 20px;
+  border-radius: 0;
+}
+
+.form-control{
+  border-radius: 0;
+
+}
+
+.retrospectives-index{
+  margin-top: 20px;
+}

@@ -1,0 +1,65 @@
+.retro-list {
+  tr, td, th {
+    background-color: rgba(53, 170, 255, 0.15);
+    //border-style: none;
+
+  }
+  thead th {
+    background-color: $primary;
+    //border-style: none;
+    color: whitesmoke;
+  }
+  tbody tr:hover, a:hover {
+    background: $table-hover;
+    cursor: pointer;
+  }
+}
+
+.retro-details {
+  tr, td, th {
+    background-color: rgba(53, 170, 255, 0.15);
+    //border-style: none;
+
+  }
+  thead th {
+    background-color: $primary;
+    //border-style: none;
+    color: whitesmoke;
+  }
+  tbody tr:hover, a:hover {
+    background: $table-hover;
+    cursor: pointer;
+  }
+}
+
+.details-content {
+  margin-top: 50px;
+}
+
+.user-values {
+
+  .card {
+    margin-top: 50px;
+
+    background-color: #e5eafb;
+    border-radius: 0;
+    .card-subtitle {
+      &.great {
+        color: #00c113 !important;
+      }
+      &.better {
+        color: #ff5835 !important;
+      }
+      .badge{
+        &.votes:hover {
+          background-color: $primary;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.user-values{
+  margin-bottom: 60px;
+}
